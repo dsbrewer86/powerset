@@ -5,8 +5,7 @@ function powerSet(array) {
   for (let i = 0; array.length > 0; i++) {
 
     let add = array.pop();
-    console.log(i);
-
+  
 
     let newCombo = [...combos];
 
@@ -24,18 +23,13 @@ function powerSet(array) {
           newCombo[j] = [newCombo[j], add];
         }
 
-
-
-
       }
       newCombo.push(add);
     }
 
-
     combos = [...combos, ...newCombo];
 
   }
-
 
   return ['empty set', ...combos];
 
