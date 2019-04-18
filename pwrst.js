@@ -2,33 +2,44 @@ function powerSet(array) {
   let combos = [];
 
 
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; array.length > 0; i++) {
 
     let add = array.pop();
+    console.log(i);
 
 
-      let newCombo = [...combos];
+    let newCombo = [...combos];
+
+
+    if (newCombo < 1) {
+      newCombo.push(add);
+    } else {
+
+      for (let j = 0; j < newCombo.length; j++) {
+
+        if (Array.isArray(newCombo[j])) {
+          newCombo[j] = [...newCombo[j], add];
+
+        } else {
+          newCombo[j] = [newCombo[j], add];
+        }
 
 
 
-    for (let j = 0; j < newCombo.length; j++) {
-      
-      if (Array.isArray(newCombo[j])) {
-        newCombo[j] = [...newCombo[j], add];
 
-      } else {
-        newCombo[j] = [newCombo[j], add];
       }
-      console.log(newCombo);
-
+      newCombo.push(add);
     }
 
+
     combos = [...combos, ...newCombo];
+
   }
 
 
-  return combos;
+  return ['empty set', ...combos];
 
 }
-
-console.log(powerSet(['a','b']));
+let result = powerSet(['a','b','c']);
+console.log(result);
+console.log(result.length);
