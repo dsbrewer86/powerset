@@ -1,3 +1,4 @@
+ 
 function powerSet(array) {
   let combos = [];
 
@@ -5,7 +6,7 @@ function powerSet(array) {
   for (let i = 0; array.length > 0; i++) {
 
     let add = array.pop();
-  
+
 
     let newCombo = [...combos];
 
